@@ -17,6 +17,10 @@ Image after disk partition and encryption
 <img src=https://github.com/rghdrizzle/arch/blob/main/Screenshot%202025-01-18%20203909.png>
 
 
+### Installation of the kernel and configuring the system
+
+I used pacstrap to install the linux base kernal into the system ```# pacstrap -K /mnt base linux linux-firmware```. After installing this, I generated a fstab file which is a file which defines how the disk partitions are mounted and this file is read by the systemd during the bootup so the system knows about the mounts. Next is an important part where we change the root to the new system we just installed by using ```# arch-chroot /mnt```. So now we actually entered into the root system ( remember how we mounted root to /mnt ? that is where the whole file system of the system and exists, so we move into the system instead of using the live installation shell). After changing the root we can install packages. Before that we set up the timezone and then generated a locale.conf file.
+
 #### Resources and links used
 - https://wiki.archlinux.org/title/Installation_guide
 - https://www.youtube.com/watch?v=Y8-KKMdZn5Q
